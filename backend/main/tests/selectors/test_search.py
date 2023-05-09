@@ -12,6 +12,7 @@ class SelectorCitiesListTests(TestCase):
         self.city = CityFactory(name='Los Angeles, CA', lat=34.052235, lon=-118.243683)
 
     def test_search(self):
+        """Test search selector."""
         cities = search(city=self.city,  date_from='2021-06-07', date_to='2021-07-07')
         self.assertIsInstance(cities, dict)
         self.assertEqual(cities['city'], 'Los Angeles, CA')
@@ -22,5 +23,6 @@ class SelectorCitiesListTests(TestCase):
         self.assertEqual(cities['date'], 'July 06')
     
     def test_search_empty(self):
-        cities = search(city=self.city,  date_from='2023-07-07', date_to='2023-07-07')
+        """Test search selector empty."""
+        cities = search(city=self.city,  date_from='2023-08-07', date_to='2023-07-07')
         self.assertEqual(cities, {})

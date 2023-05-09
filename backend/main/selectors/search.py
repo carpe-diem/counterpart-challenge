@@ -16,7 +16,6 @@ def search(*, city: City, date_from: str, date_to: str) -> dict:
 
     result = earthquake.get_nearest_earthquake()
     # TODO save search to database
-    import pdb; pdb.set_trace()
     
     if not result:
         return {}
