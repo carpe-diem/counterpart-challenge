@@ -1,0 +1,16 @@
+[
+  {
+    "_id": "f4811f66-b6f9-4c61-83ce-427db9855b45",
+    "name": "development",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2023-05-09T10:00:10.069Z",
+    "modified": "2023-05-09T10:00:10.069Z",
+    "data": [
+      {
+        "name": "domain",
+        "value": "http://localhost:9000"
+      }
+    ]
+  }
+]

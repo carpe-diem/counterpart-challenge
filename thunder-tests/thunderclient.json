@@ -1,0 +1,19 @@
+[
+  {
+    "_id": "7ea111f5-d4db-4257-9c5b-ec91c816f013",
+    "colId": "ce9743be-939d-4f91-8635-95201b9a9933",
+    "containerId": "9e277343-e387-46d4-91e7-251870bb10e6",
+    "name": "List Cities",
+    "url": "{{domain}}/api/cities",
+    "method": "GET",
+    "sortNum": 10000,
+    "created": "2023-05-09T09:59:50.613Z",
+    "modified": "2023-05-09T12:53:09.798Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "none"
+    },
+    "tests": []
+  }
+]

@@ -139,6 +139,9 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
     "EXCEPTION_HANDLER": "main.exception_handlers.hacksoft_proposed_exception_handler",
     "DEFAULT_AUTHENTICATION_CLASSES": [],
 }
