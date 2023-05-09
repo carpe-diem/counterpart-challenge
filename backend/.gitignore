@@ -1,0 +1,30 @@
+# Python bytecode:
+*.py[co]
+__pycache__
+
+# Packaging files:
+*.egg*
+
+# Editor temp files:
+*.swp
+*~
+
+# Sphinx docs:
+build
+
+# SQLite3 database files:
+*.db
+
+# Celerybeat scheduler file:
+celerybeat-schedule
+ENV
+
+# enviroment
+.env
+
+# logs
+logs/*
+
+#database
+volumes/*
+.DS_Store
