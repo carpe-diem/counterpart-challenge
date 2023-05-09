@@ -1,3 +1,7 @@
+# Code
+[Backend here](./backend/)
+[Frontend here](./frontend/)
+
 # Counterpart - The Challenge
 
 We're going to create a system that will use the **USGS Earthquake** public data set to show us where the nearest earthquake above a 5.0 was in relation to one of the following cities, between 2 dates that the user specifies:
