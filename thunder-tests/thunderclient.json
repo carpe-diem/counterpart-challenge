@@ -34,5 +34,24 @@
       "form": []
     },
     "tests": []
+  },
+  {
+    "_id": "671ae989-4d34-449d-a678-b60a5f935299",
+    "colId": "ce9743be-939d-4f91-8635-95201b9a9933",
+    "containerId": "142c7ef6-1757-4a91-8140-3b62faae7793",
+    "name": "search",
+    "url": "{{domain}}/api/search",
+    "method": "POST",
+    "sortNum": 30000,
+    "created": "2023-05-09T16:46:46.781Z",
+    "modified": "2023-05-09T16:48:05.502Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"date_from\": \"2021-06-07\",\n  \"date_to\": \"2021-07-07\",\n  \"city_id\": 1\n}",
+      "form": []
+    },
+    "tests": []
   }
 ]
