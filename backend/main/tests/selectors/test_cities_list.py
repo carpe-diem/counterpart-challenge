@@ -21,11 +21,11 @@ class SelectorCitiesListTests(TestCase):
     def test_cities_list_order(self):
         """Test cities_list selector order."""
         cities = cities_list()
-        self.assertEqual(cities[0].name, 'Test City Name 0')
-        self.assertEqual(cities[1].name, 'Test City Name 1')
-        self.assertEqual(cities[2].name, 'Test City Name 2')
-        self.assertEqual(cities[3].name, 'Test City Name 3')
-        self.assertEqual(cities[4].name, 'Test City Name 4')
+        self.assertEqual(cities[0].name, 'Test City Name 10')
+        self.assertEqual(cities[1].name, 'Test City Name 11')
+        self.assertEqual(cities[2].name, 'Test City Name 12')
+        self.assertEqual(cities[3].name, 'Test City Name 13')
+        self.assertEqual(cities[4].name, 'Test City Name 14')
     
     def test_cities_list_type(self):
         """Test cities_list selector type."""
