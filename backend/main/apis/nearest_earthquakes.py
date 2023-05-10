@@ -25,14 +25,6 @@ class NearestEarthquakesSearchApi(APIView):
                 raise serializers.ValidationError('date_to cannot be greater than today')
             return data
 
-    # class OutputSerializer(serializers.Serializer):
-    #     city = serializers.CharField()
-    #     date_from = serializers.CharField()
-    #     date_to = serializers.CharField()
-    #     closest_earthquake = serializers.CharField()
-    #     magnitude = serializers.FloatField()
-    #     date = serializers.CharField()
-
     def post(self, request, *args, **kwargs):
         serializer = self.InputSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)

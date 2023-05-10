@@ -4,7 +4,7 @@ from django.db.models.query import QuerySet
 from main.exceptions import ApplicationError
 from main.selectors.search import search
 from main.tests.factories import CityFactory
-
+from main.utils import format_date_from_string
 
 class SelectorCitiesListTests(TestCase):
     """Test for cities list selector."""
@@ -16,11 +16,11 @@ class SelectorCitiesListTests(TestCase):
         cities = search(city=self.city,  date_from='2021-06-07', date_to='2021-07-07')
         self.assertIsInstance(cities, dict)
         self.assertEqual(cities['city'], 'Los Angeles, CA')
-        self.assertEqual(cities['date_from'], 'June 07 2021')
-        self.assertEqual(cities['date_to'], 'July 07 2021')
+        self.assertEqual(cities['date_from'], format_date_from_string('2021-06-07'))
+        self.assertEqual(cities['date_to'], format_date_from_string('2021-07-07'))
         self.assertEqual(cities['closest_earthquake'], 'Corral del Risco (Punta de Mita), Mexico')
         self.assertEqual(cities['magnitude'], 5.6)
-        self.assertEqual(cities['date'], 'July 04')
+        self.assertEqual(cities['date'], format_date_from_string('2021-07-04'))
     
     def test_search_empty(self):
         """Test search selector empty."""

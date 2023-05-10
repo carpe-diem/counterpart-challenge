@@ -2,7 +2,7 @@ from typing import Iterable
 
 from main.earthquake_service import EarthquakeApiClient
 from main.models import City
-from main.utils import format_date, format_timestamp
+from main.utils import format_date_from_timestamp, format_date_from_string
 
 
 def search(*, city: City, date_from: str, date_to: str) -> dict:
@@ -15,17 +15,20 @@ def search(*, city: City, date_from: str, date_to: str) -> dict:
     )
 
     result = earthquake.get_nearest_earthquake()
-    # TODO save search to database
     
     if not result:
         return {}
 
     data = {
         'city': city.name,
-        'date_from': format_date(date_from),
-        'date_to': format_date(date_to),
+        'date_from': format_date_from_string(date_from),
+        'date_to': format_date_from_string(date_to),
         'closest_earthquake': result['properties']['place'],
         'magnitude': result['properties']['mag'],
-        'date': format_timestamp(result['properties']['time'], year=False)
+        'date': format_date_from_timestamp(result['properties']['time'])
     }
+    
+    # TODO This could be stored asynchronously. For example using a celery task.
+    # save search to database
+
     return data
