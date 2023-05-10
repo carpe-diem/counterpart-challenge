@@ -1,0 +1,89 @@
+{
+    "info": {
+        "name": "API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "City",
+            "item": [
+                {
+                    "name": "List Cities",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{domain}}/api/cities",
+                            "path": [
+                                "api",
+                                "cities"
+                            ],
+                            "host": [
+                                "{{domain}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    }
+                },
+                {
+                    "name": "Create City",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{domain}}/api/cities/create",
+                            "path": [
+                                "api",
+                                "cities",
+                                "create"
+                            ],
+                            "host": [
+                                "{{domain}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n    \"name\": \"Los Angeles, CA\",\n    \"lat\": 34.052235,\n    \"lon\": -118.243683\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "search",
+            "item": [
+                {
+                    "name": "search",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{domain}}/api/search",
+                            "path": [
+                                "api",
+                                "search"
+                            ],
+                            "host": [
+                                "{{domain}}"
+                            ]
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"date_from\": \"2021-06-07\",\n  \"date_to\": \"2021-07-07\",\n  \"city_id\": 1\n}"
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

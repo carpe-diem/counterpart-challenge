@@ -25,12 +25,12 @@
     "method": "POST",
     "sortNum": 20000,
     "created": "2023-05-09T13:18:45.547Z",
-    "modified": "2023-05-09T13:20:41.150Z",
+    "modified": "2023-05-10T08:50:13.000Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n    \"name\": \"Los Angeles, CA\",\n    \"lat\": 34.052235,\n    \"lon\": -118.243683\n}",
+      "raw": "{\n    \"name\": \"Tokyo, Japan\",\n    \"lat\": 35.6762,\n    \"lon\": 139.6503\n}",
       "form": []
     },
     "tests": []
@@ -44,12 +44,12 @@
     "method": "POST",
     "sortNum": 30000,
     "created": "2023-05-09T16:46:46.781Z",
-    "modified": "2023-05-09T16:48:05.502Z",
+    "modified": "2023-05-10T08:50:39.793Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"date_from\": \"2021-06-07\",\n  \"date_to\": \"2021-07-07\",\n  \"city_id\": 1\n}",
+      "raw": "{\n  \"date_from\": \"2021-06-07\",\n  \"date_to\": \"2021-07-07\",\n  \"city_id\": 2\n}",
       "form": []
     },
     "tests": []

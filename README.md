@@ -1,7 +1,3 @@
-# Code
-[Backend here](./backend/)
-[Frontend here](./frontend/)
-
 # Counterpart - The Challenge
 
 We're going to create a system that will use the **USGS Earthquake** public data set to show us where the nearest earthquake above a 5.0 was in relation to one of the following cities, between 2 dates that the user specifies:
@@ -49,3 +45,59 @@ USGS provides urls for you to query from them for free here:
 https://earthquake.usgs.gov/earthquakes/search/
 An example of using the URL:
 https://earthquake.usgs.gov/fdsnws/event/1/query.geojson?starttime=2021-06-07&endtime=202 1-07-07&minmagnitude=4.5&orderby=time
+
+
+# Backend
+> **Note**
+For the development, I followed the Django-Styleguide proposed by the company [HackSoft](https://github.com/HackSoftware/Django-Styleguide).
+
+Developers Setup
+================
+
+services with docker except the API (Django), since it is more comfortable to debug outside the container.
+
+First, we run the services with docker, then Django.
+
+Services with Docker (Database)
+------------------------------ 
+    ~$ docker-compose build
+    ~$ docker-compose up -d
+
+API
+---
+
+Environment Variables
+
+    ~$ cp .env.example .env
+
+Install Poetry
+
+    ~$ curl -sSL https://install.python-poetry.org | python3 -
+    ~$ export PATH="$HOME/.local/bin:$PATH"
+
+Install dependencies
+
+    ~$ poetry install
+
+Run migrations
+
+    ~$ poetry run python manage.py migrate
+
+Initial Data
+    ~/ poetry run python3 manage.py loaddata main/fixtures/initial_data.json 
+
+Run runserver
+
+    ~$ poetry run python manage.py runserver 0.0.0.0:9000
+
+Run tests
+
+    ~/ poetry run python3 manage.py test
+
+
+## Endpoints
+
+You can use the [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) extension for VSCode or use postman.
+
+Thunder Client files [here](./thunder-tests/)
+Postman File [here](./thunder-collection_API_postman.json)

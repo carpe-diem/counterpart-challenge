@@ -1,2 +1,0 @@
-# Counterpart - The Challenge (FRONTEND)
-

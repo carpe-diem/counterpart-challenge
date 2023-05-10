@@ -1,0 +1,29 @@
+[
+{
+  "model": "main.city",
+  "pk": 1,
+  "fields": {
+    "name": "Los Angeles, CA",
+    "lat": 34.052235,
+    "lon": -118.243683
+  }
+},
+{
+  "model": "main.city",
+  "pk": 2,
+  "fields": {
+    "name": "San Francisco, CA",
+    "lat": 37.7749,
+    "lon": 122.4194
+  }
+},
+{
+  "model": "main.city",
+  "pk": 3,
+  "fields": {
+    "name": "Tokyo, Japan",
+    "lat": 35.6762,
+    "lon": 139.6503
+  }
+}
+]
