@@ -1,3 +1,5 @@
+import datetime
+
 import factory
 import factory.fuzzy
 
@@ -15,11 +17,11 @@ class CityFactory(factory.django.DjangoModelFactory):
 
 class SearchHistoryFactory(factory.django.DjangoModelFactory):
     city = factory.SubFactory(CityFactory)
-    date_from = factory.fuzzy.FuzzyDate()
-    date_to = factory.fuzzy.FuzzyDate()
+    date_from = factory.LazyFunction(datetime.datetime.now().date)
+    date_to = factory.LazyFunction(datetime.datetime.now().date)
+    date = factory.LazyFunction(datetime.datetime.now().date)
     closest_earthquake = factory.Sequence(lambda n: f'Test Closest Earthquake {n}')
     magnitude = factory.fuzzy.FuzzyFloat(0.0, 10.0)
-    date = factory.fuzzy.FuzzyDate()
 
     class Meta:
         model = SearchHistory

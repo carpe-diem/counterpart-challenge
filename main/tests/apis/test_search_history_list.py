@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.conf import settings
 from rest_framework.test import APIClient
 
-from main.models import City
+from main.models import SearchHistory
 from main.tests.factories import CityFactory, SearchHistoryFactory
 
 
@@ -30,7 +30,7 @@ class ProjectListTestTests(TestCase):
     def test_list_searches_empty(self):
         """Test list searches empty."""
         SearchHistoryFactory.reset_sequence()
-        SearchHistoryFactory.objects.all().delete()
+        SearchHistory.objects.all().delete()
 
         response = self.client.get(self.searches_list_url)
         self.assertEqual(response.status_code, 200)
