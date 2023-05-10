@@ -49,7 +49,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n    \"name\": \"Los Angeles, CA\",\n    \"lat\": 34.052235,\n    \"lon\": -118.243683\n}"
+                            "raw": "{\n    \"name\": \"Tokyo, Japan\",\n    \"lat\": 35.6762,\n    \"lon\": 139.6503\n}"
                         }
                     }
                 }
@@ -79,7 +79,26 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"date_from\": \"2021-06-07\",\n  \"date_to\": \"2021-07-07\",\n  \"city_id\": 1\n}"
+                            "raw": "{\n  \"date_from\": \"2021-06-07\",\n  \"date_to\": \"2021-07-07\",\n  \"city_id\": 2\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "List Searches",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{domain}}/api/history",
+                            "path": [
+                                "api",
+                                "history"
+                            ],
+                            "host": [
+                                "{{domain}}"
+                            ]
+                        },
+                        "auth": {
+                            "type": "noauth"
                         }
                     }
                 }
