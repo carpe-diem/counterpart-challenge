@@ -20,7 +20,6 @@ def search(*, city: City, date_from: str, date_to: str) -> dict:
     if not result:
         return {}
 
-    result = result[0]
     data = {
         'city': city.name,
         'date_from': format_date(date_from),

@@ -29,9 +29,9 @@ class ProjectDetailTestTests(TestCase):
         self.assertEqual(response.data['city'], 'Los Angeles, CA')
         self.assertEqual(response.data['date_from'], 'June 07 2021')
         self.assertEqual(response.data['date_to'], 'July 07 2021')
-        self.assertEqual(response.data['closest_earthquake'], '101 km S of Merizo Village, Guam')
-        self.assertEqual(response.data['magnitude'], 5)
-        self.assertEqual(response.data['date'], 'July 06')
+        self.assertEqual(response.data['closest_earthquake'], 'Corral del Risco (Punta de Mita), Mexico')
+        self.assertEqual(response.data['magnitude'], 5.6 )
+        self.assertEqual(response.data['date'], 'July 04')
     
     def test_search_nearest_earthquakes_empty(self):
         """Test search nearest earthquakes empty."""
