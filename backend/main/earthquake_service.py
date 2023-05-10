@@ -1,5 +1,7 @@
 from datetime import date
 
+from django.core.cache import cache
+
 from geopy.distance import distance
 import numpy as np
 import requests
@@ -41,10 +43,16 @@ class EarthquakeApiClient():
         return self._format_city(response[idx])
 
     def _get_earthquakes(self):
-        response = requests.get(EARTHQUAKE_URL, params=self._payload())
-        data = response.json()
+        cache_key = f"earthquake_api_response_{self.lat}_{self.lon}_{self.date_from}_{self.date_to}"
+        data = cache.get(cache_key)
 
-        # Storre data in cache/db. Maybe use redis?
+        if data is None:
+            # Si no hay datos en caché, haz la solicitud a la API
+            response = requests.get(EARTHQUAKE_URL, params=self._payload())
+            data = response.json()
+
+            cache.set(cache_key, data)
+
         return data
 
     def get_nearest_earthquake(self):
