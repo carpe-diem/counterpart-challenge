@@ -10,3 +10,16 @@ class City(models.Model):
 
     class Meta:
         unique_together = ('lat', 'lon')
+
+
+class SearchHistory(models.Model):
+    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    date_from = models.DateField()
+    date_to = models.DateField()
+    closest_earthquake = models.CharField(max_length=128)
+    magnitude = models.FloatField()
+    date = models.DateField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name

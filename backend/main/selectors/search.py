@@ -1,7 +1,8 @@
 from typing import Iterable
 
 from main.earthquake_service import EarthquakeApiClient
-from main.models import City
+from main.models import City, SearchHistory
+from main.services.search_create import search_create
 from main.utils import format_date_from_timestamp, format_date_from_string
 
 
@@ -20,7 +21,6 @@ def search(*, city: City, date_from: str, date_to: str) -> dict:
         return {}
 
     data = {
-        'city': city.name,
         'date_from': format_date_from_string(date_from),
         'date_to': format_date_from_string(date_to),
         'closest_earthquake': result['properties']['place'],
@@ -29,6 +29,7 @@ def search(*, city: City, date_from: str, date_to: str) -> dict:
     }
     
     # TODO This could be stored asynchronously. For example using a celery task.
-    # save search to database
+    search_create(**data, city=city)
+    data['city'] = city.name
 
     return data

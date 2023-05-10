@@ -4,10 +4,11 @@ from django.urls import reverse
 
 from rest_framework.test import APIClient
 
+from main.models import SearchHistory
 from main.tests.factories import CityFactory
 from main.utils import format_date_from_string
 
-class PSearchTestTests(TestCase):
+class SearchTestTests(TestCase):
 
     def setUp(self):
         self.client = APIClient()
@@ -32,7 +33,19 @@ class PSearchTestTests(TestCase):
         self.assertEqual(response.data['closest_earthquake'], 'Corral del Risco (Punta de Mita), Mexico')
         self.assertEqual(response.data['magnitude'], 5.6 )
         self.assertEqual(response.data['date'], format_date_from_string('2021-07-04'))
-    
+
+    def test_search_stored(self):
+        """Test search stored."""
+        response = self.client.post(self.search_url, self.search_data)
+        self.assertEqual(response.status_code, 200)
+        search = SearchHistory.objects.all().last()
+        self.assertEqual(search.city.name, 'Los Angeles, CA')
+        self.assertEqual(search.date_from, format_date_from_string('2021-06-07'))
+        self.assertEqual(search.date_to, format_date_from_string('2021-07-07'))
+        self.assertEqual(search.closest_earthquake, 'Corral del Risco (Punta de Mita), Mexico')
+        self.assertEqual(search.magnitude, 5.6 )
+        self.assertEqual(search.date, format_date_from_string('2021-07-04'))
+
     def test_search_nearest_earthquakes_empty(self):
         """Test search nearest earthquakes empty."""
         self.search_data['date_from'] = '2021-07-07'
